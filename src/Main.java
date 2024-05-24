@@ -1,5 +1,3 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 import java.util.Scanner;
 
 public class Main {
@@ -19,11 +17,12 @@ public class Main {
         for (int i = 0; i < califAlumno.length; i++) {
         System.out.printf("Ingresa la calificación " + (i+1) + " :");
             int calif = sc.nextInt();
-            if (calif <0 || calif >100) {
+            while (calif <0 || calif >100) {
                 System.out.println("Ingresa una calificación entre el rango de 0 - 100");
-            } else {
-                califAlumno[i] = calif;
+                System.out.printf("Ingresa la calificación " + (i+1) + ": ");
+                calif = sc.nextInt();
             }
+            califAlumno[i] = calif;
         }
         average = promedio(califAlumno);
         cf = cf(average);
@@ -66,6 +65,7 @@ public class Main {
     public static void printInfo(String nombAlumno, int[] califAlumno, double promedio, char cf){
         System.out.println("===================================================================");
         System.out.println("Nombre del estudiante: " + nombAlumno);
+        System.out.println("-------------------------------------------------------------------");
         for (int i = 0; i < califAlumno.length; i++) {
             System.out.println("Calificación " + (i+1) + ": " + califAlumno[i]);
             }
@@ -73,4 +73,3 @@ public class Main {
         System.out.println("Calificación: " + cf);
     }
 }
-
